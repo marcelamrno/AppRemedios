@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>App Meus Remédios</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Tela de Login -->
+<div class="container" id="loginScreen">
+  <h2>Entrar no Aplicativo</h2>
+  <input type="text" id="nomeInput" placeholder="Seu nome">
+  <input type="email" id="emailInput" placeholder="Seu email">
+  <button onclick="fazerLogin()">Login</button>
+</div>
+
+<!-- Tela Principal -->
+<div class="container hidden" id="mainScreen">
+  <h2>Bem-vindo, <span id="nomeUsuario"></span>!</h2>
+  <input type="text" id="remedioInput" placeholder="Nome do remédio">
+  <input type="time" id="horaInput">
+  <button onclick="adicionarRemedio()">Adicionar Remédio</button>
+  <button onclick="limparConcluidos()">Limpar Concluídos</button>
+  <ul id="listaRemedios"></ul>
+  <button onclick="gerarPDF()">Gerar PDF dos concluídos de hoje</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
