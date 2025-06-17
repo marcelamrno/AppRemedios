@@ -11,25 +11,27 @@ function fazerLogin() {
     nomeUsuarioSpan.textContent = nome;
     loginScreen.classList.add("hidden");
     mainScreen.classList.remove("hidden");
-  } else {
-    alert("Preencha todos os campos para entrar.");
+    }
+   
   }
-}
-
 function adicionarRemedio() {
   const nomeRemedio = document.getElementById("remedioInput").value.trim();
   const hora = document.getElementById("horaInput").value;
-  if (nomeRemedio && hora) {
+  const dosagem = document.getElementById("dosagemInput").value.trim();
+  const pacienteNome = document.getElementById("pacienteNomeInput").value.trim();
+  if (nomeRemedio && hora && dosagem && pacienteNome) {
     const data = new Date().toLocaleDateString();
     const li = document.createElement("li");
-    li.textContent = `[${data} - ${hora}] ${nomeRemedio}`;
+    li.textContent = `[${data} - ${hora}] ${nomeRemedio} - ${dosagem}mg - Paciente: ${pacienteNome}`;
     li.onclick = () => li.classList.toggle("completed");
     listaRemedios.appendChild(li);
-    alarmes.push({ hora, nomeRemedio, alertado: false });
+    alarmes.push({ hora, nomeRemedio, dosagem, pacienteNome, alertado: false });
     document.getElementById("remedioInput").value = "";
     document.getElementById("horaInput").value = "";
+    document.getElementById("dosagemInput").value = "";
+    document.getElementById("pacienteNomeInput").value = "";
   } else {
-    alert("Digite o nome do remédio e o horário.");
+    alert("Digite o nome do remédio, horário, dosagem e nome do paciente.");
   }
 }
 
